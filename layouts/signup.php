@@ -114,8 +114,9 @@ require_once('../connection/connect.php');
 					url: '../controller/actionregister.php',
 					data: {username: username,password: password,level: level},
 					success: function(data){
+                        console.log(data);
 					Swal.fire({
-								title: 'Successful',
+								title: 'Successfully',
 								text: data,
 								icon: 'success'
 								})

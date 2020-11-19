@@ -22,7 +22,7 @@ session_start();
                       }
                   if ($_SESSION["level"]=="sideline"){ 
 
-                        Header("Location: sideline.php");
+                        Header("Location: ../layouts/sideline/sidelinepage.php");
                       }
                   }else{
                     echo "<script>";

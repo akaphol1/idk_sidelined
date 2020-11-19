@@ -26,9 +26,7 @@ include('../connection/connect.php');  //ไฟล์เชื่อมต่อ
     }
     
 	else{
-
         echo 'Sorry... Username Already';
-    
     }
 
     }else{

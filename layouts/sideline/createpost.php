@@ -52,7 +52,7 @@
     <div class="contaier">
         <div class="row">
             <div class="col-md-12 col-md-offset-5">
-                <form id="msform">
+                <form id="msform" action="../controller/actioncreatepost.php" method="POST" id="login" class="form-horizontal">
                     <!-- progressbar -->
                     <ul id="progressbar">
                         <li class="active"><span style="color:blue">
@@ -251,7 +251,7 @@
                         <h2 class="fs-title">โปรดส่งชื่อน้องในโพสต์มาที่ไลน์</h2>
                         <h2 class="fs-title">Line: <a href="#" style="text-decoration: none;color:green;"><u>แอดมินบีบิว</u></a> <i class="fab fa-line" style="color:green"></i></h2>
                         <h2 class="fs-title">คุณสามารถปิดหน้านี้ได้</h2>
-                        <input type="submit" name="submit" class="submit action-button" value="ชมหน้าโพสต์" />
+                        <input type="submit" value="Submit" class="submit action-button" value="ชมหน้าโพสต์" />
                     </fieldset>
                 </form>
                 <!-- link to designify.me code snippets -->

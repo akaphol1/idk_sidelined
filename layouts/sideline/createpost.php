@@ -5,21 +5,18 @@
     <meta charset="UTF-8">
     <title>CodePen - bootstrap 4 navbar</title>
     <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
 
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css'>
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 
 <body>
     <!-- partial:index.partial.html -->
     <nav class="navbar navbar-expand-lg navbar-mainbg">
         <a class="navbar-brand navbar-logo" href="sidelinepage.php">Idk<span>sideline</span></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars text-white"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -45,14 +42,14 @@
         <center>โพสต์ลงงานไซด์ไลน์</center>
     </h2>
     <p>
-    <h3>
-        <center>ขั้นตอนการลงโพสต์</center>
-    </h3>
+        <h3>
+            <center>ขั้นตอนการลงโพสต์</center>
+        </h3>
     </p>
     <div class="contaier">
         <div class="row">
             <div class="col-md-12 col-md-offset-5">
-                <form id="msform" action="../controller/actioncreatepost.php" method="POST" id="login" class="form-horizontal">
+                <form id="msform" action="../controller/actioncreatepost.php" method="POST" class="form-horizontal">
                     <!-- progressbar -->
                     <ul id="progressbar">
                         <li class="active"><span style="color:blue">
@@ -119,7 +116,7 @@
                         <div class="form-group row">
                             <label for="" class="col-sm-5 col-form-label">ข้อความเกี่ยวกับน้อง :</label>
                             <div class="col-sm-5">
-                                <textarea name="text" style="height: 200px;"></textarea>
+                                <textarea name="textsideline" style="height: 200px;"></textarea>
                             </div>
                         </div>
 
@@ -128,8 +125,7 @@
                             <label for="" class="col-sm-5 col-form-label">รูปภาพ :</label>
                             <div class="col-sm-5">
                                 <small>รูปภาพจะถูกแสดงเป็นภาพหลักหน้าโพสต์</small>
-                                <input type="file" id="image" name="image[]" multiple />
-                                <div id="frames"></div>
+                                <input type="file" name="image" />
                             </div>
                         </div>
 
@@ -148,21 +144,21 @@
                         <div class="form-group row">
                             <label for="" class="col-sm-5 col-form-label">อายุ :</label>
                             <div class="col-sm-5">
-                                <input type="text" name="jobname" placeholder="ปี" />
+                                <input type="text" name="age" placeholder="ปี" />
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="" class="col-sm-5 col-form-label">ส่วนสูง :</label>
                             <div class="col-sm-5">
-                                <input type="text" name="jobname" placeholder="เซนติเมตร" />
+                                <input type="text" name="height" placeholder="เซนติเมตร" />
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="" class="col-sm-5 col-form-label">น้ำหนัก :</label>
                             <div class="col-sm-5">
-                                <input type="text" name="jobname" placeholder="กิโลกรัม" />
+                                <input type="text" name="weight" placeholder="กิโลกรัม" />
                             </div>
                         </div>
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
@@ -181,18 +177,15 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th scope="row"><input type="radio" name="dayforprice" id="dayforprice"
-                                            value="7days"> 7 วัน</th>
+                                    <th scope="row"><input type="radio" name="dayforprice" id="dayforprice" value="150"> 7 วัน</th>
                                     <td>฿150 (วันละ ฿21)</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row"><input type="radio" name="dayforprice" id="dayforprice"
-                                            value="1months"> 1 เดือน</th>
+                                    <th scope="row"><input type="radio" name="dayforprice" id="dayforprice" value="500"> 1 เดือน</th>
                                     <td>฿500 (วันละ ฿16) - แนะนำ</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row"><input type="radio" name="dayforprice" id="dayforprice"
-                                            value="3months"> 3 เดือน</th>
+                                    <th scope="row"><input type="radio" name="dayforprice" id="dayforprice" value="1300"> 3 เดือน</th>
                                     <td>฿1300 (วันละ ฿14)</td>
                                 </tr>
                             </tbody>
@@ -210,14 +203,12 @@
                                 <tr>
                                     <th scope="row">ช่องทางการส่งสลิป</th>
                                     <td>
-                                        <input type="radio" name="howtopay" id="howtopay"
-                                            value="slipforline">ส่งสลิปทางไลน์ภายหลัง
+                                        <input type="radio" name="howtosendslip" id="howtosendslip" value="slipforline">ส่งสลิปทางไลน์ภายหลัง
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row"></th>
-                                    <td><input type="radio" name="howtopay" id="howtopay"
-                                            value="slipbefore">ส่งสลิปพร้อมกับโพสต์ (ลูกค้าเก่าเท่านั้น)</td>
+                                    <td><input type="radio" name="howtosendslip" id="howtosendslip" value="slipbefore">ส่งสลิปพร้อมกับโพสต์ (ลูกค้าเก่าเท่านั้น)</td>
                                 </tr>
 
 
@@ -236,7 +227,7 @@
                                 <tr>
                                     <th scope="row"></th>
                                     <td>
-                                    กดลงโพสต์ก่อน แล้วส่งชื่อในโพสต์ให้แอดมิน
+                                        กดลงโพสต์ก่อน แล้วส่งชื่อในโพสต์ให้แอดมิน
                                     </td>
                                 </tr>
                             </tbody>
@@ -247,12 +238,13 @@
 
 
                     <fieldset>
-                    <i class="fas fa-check-circle fa-10x" style="color: green;"></i>
+                        <i class="fas fa-check-circle fa-10x" style="color: green;"></i>
                         <h2 class="fs-title">สร้างโพสต์เรียบร้อย</h2>
                         <h2 class="fs-title">โปรดส่งชื่อน้องในโพสต์มาที่ไลน์</h2>
                         <h2 class="fs-title">Line: <a href="#" style="text-decoration: none;color:green;"><u>แอดมินบีบิว</u></a> <i class="fab fa-line" style="color:green"></i></h2>
                         <h2 class="fs-title">คุณสามารถปิดหน้านี้ได้</h2>
-                        <input type="submit" value="Submit" class="submit action-button" value="ชมหน้าโพสต์" />
+                        <input type="submit" class="btn btn-warning" value="ชมหน้าโพสต์" />
+
                     </fieldset>
                 </form>
                 <!-- link to designify.me code snippets -->
@@ -262,14 +254,12 @@
 
     </div>
     <!-- partial -->
-    
     <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
     <script src="js/script.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </body>
 

@@ -12,7 +12,6 @@ session_start();
                   if(mysqli_num_rows($result)==1){
                       $row = mysqli_fetch_array($result);
 
-                      $_SESSION["ID"] = $row["ID"];
                       $_SESSION["username"] = $row["username"];
                       $_SESSION["level"] = $row["level"];
 

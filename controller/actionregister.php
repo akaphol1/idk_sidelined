@@ -4,7 +4,7 @@ include('../connection/connect.php');  //ไฟล์เชื่อมต่อ
     if(isset($_POST)){
 
 	$username = $_POST["username"];
-	$password = sha1($_POST["password"]);
+	$password = $_POST["password"];
 	$level = $_POST["level"];
 
 	
@@ -23,6 +23,7 @@ include('../connection/connect.php');  //ไฟล์เชื่อมต่อ
 
 	if($result){
         echo 'SuccessFully Saved';
+        Header("Location: ../layouts/signin.php");
     }
     
 	else{

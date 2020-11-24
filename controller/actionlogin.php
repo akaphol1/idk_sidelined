@@ -15,6 +15,11 @@ session_start();
                       $_SESSION["username"] = $row["username"];
                       $_SESSION["level"] = $row["level"];
 
+                      if($_SESSION["level"]=="admin"){ 
+
+                        Header("Location: ../layouts/admin/adminpage.php");
+                      }
+
                       if($_SESSION["level"]=="person"){ 
 
                         Header("Location: ../layouts/person/personpage.php");

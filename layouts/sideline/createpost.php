@@ -1,6 +1,23 @@
+<?php
+    require "../connection/connect.php";
+
+    if(isset($_POST['submit'])){
+        $filetmp = $_FILES['file_img']['tmp_name'];
+        $filename = $_FILES['file_img']['name'];
+        $filepath = 'upload/'.$filename;
+
+        move_uploaded_file($filetmp,$filepath);
+        $query = "INSERT INTO createpost(image,name)
+                    VALUES(?,?)";
+        $stmt = mysqli_prepare($con,$query);
+        mysqli_stmt_bind_param($stmt,"ss",$filename,$filepath);
+        if(mysqli_stmt_execute(($stmt))){
+
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>CodePen - bootstrap 4 navbar</title>
@@ -49,7 +66,7 @@
     <div class="contaier">
         <div class="row">
             <div class="col-md-12 col-md-offset-5">
-                <form id="msform" action="../controller/actioncreatepost.php" method="POST" class="form-horizontal">
+                <form id="msform" action="../controller/actioncreatepost.php" method="POST" enctype="multipart/form-data" class="form-horizontal">
                     <!-- progressbar -->
                     <ul id="progressbar">
                         <li class="active"><span style="color:blue">
@@ -243,7 +260,7 @@
                         <h2 class="fs-title">โปรดส่งชื่อน้องในโพสต์มาที่ไลน์</h2>
                         <h2 class="fs-title">Line: <a href="#" style="text-decoration: none;color:green;"><u>แอดมินบีบิว</u></a> <i class="fab fa-line" style="color:green"></i></h2>
                         <h2 class="fs-title">คุณสามารถปิดหน้านี้ได้</h2>
-                        <input type="submit" class="btn btn-warning" value="ชมหน้าโพสต์" />
+                        <input type="submit" name="submit"  class="btn btn-warning" value="ชมหน้าโพสต์" />
 
                     </fieldset>
                 </form>

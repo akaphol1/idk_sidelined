@@ -58,7 +58,7 @@
             echo "<div class='col-md-4'>";
             echo "<div class='card card-body'>";
             
-            echo "<img class='img-fluid img-thumbnail' src='upload/".$row['image']."' style='height: 300px;'>";
+            echo "<img class='img-fluid img-thumbnail' src='controller/upload/".$row['image']."' style='height: 300px;'>";
             echo "<h5 class='card-title'>".$row['zone']."</h5>";
             echo "<p class='card-text'>".$row['area']."</p>";
             echo "<h4 class='card-footer'>".$row['rateprice']."฿</h4>";

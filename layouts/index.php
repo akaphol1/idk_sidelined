@@ -38,60 +38,48 @@
     <div class="row mx-auto my-auto">
         <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
             <div class="carousel-inner w-100" role="listbox">
-                <div class="carousel-item active">
-                    <div class="col-md-4">
-                        <div class="card card-body">
-                            <img class="img-fluid" src="http://placehold.it/380?text=1">
-                            <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col-md-4">
-                        <div class="card card-body">
-                            <img class="img-fluid" src="http://placehold.it/380?text=2">
-                            <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col-md-4">
-                        <div class="card card-body">
-                            <img class="img-fluid" src="http://placehold.it/380?text=3">
-                            <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col-md-4">
-                        <div class="card card-body">
-                            <img class="img-fluid" src="http://placehold.it/380?text=4">
-                            <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col-md-4">
-                        <div class="card card-body">
-                            <img class="img-fluid" src="http://placehold.it/380?text=5">
-                            <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col-md-4">
-                        <div class="card card-body">
-                            <img class="img-fluid" src="http://placehold.it/380?text=6">
-                            <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
+
+            <?php
+        include('../connection/connect.php');
+        $query = "SELECT * FROM createpost"; 
+        $result = mysqli_query($con,$query);
+        if($result){
+            $row = mysqli_num_rows($result);
+            
+            if($row=1){
+                while($row = mysqli_fetch_array($result)){
+                    echo "<div class='carousel-item active'>";
+                    echo "<div class='col-md-4'>";
+                    echo "<div class='card card-body'>";
+                    echo "<img class='img-fluid' src='sideline/upload/saturn.png'>";
+                    echo "<h5 class='card-title'>".$row['jobname']."</h5>";
+                    echo "<p class='card-text'>".$row['area']."</p>";
+                    echo "<p class='card-text'>".$row['zone']."</p>";
+                    echo "<p class='card-footer'>".$row['rateprice']."</p>";
+                    echo "</div>";
+                    echo "</div>";
+                    echo "</div>";
+                }
+            }
+            else{
+                while($row = mysqli_fetch_array($result)){
+                    echo "<div class='carousel-item'>";
+                    echo "<div class='col-md-4'>";
+                    echo "<div class='card card-body'>";
+                    echo "<img class='img-fluid' src='sideline/upload/saturn.png'>";
+                    echo "<h5 class='card-title'>".$row['jobname']."</h5>";
+                    echo "<p class='card-text'>".$row['area']."</p>";
+                    echo "<p class='card-text'>".$row['zone']."</p>";
+                    echo "<p class='card-footer'>".$row['rateprice']."</p>";
+                    echo "</div>";
+                    echo "</div>";
+                    echo "</div>";
+                }
+            }
+        }
+
+            mysqli_close($con);
+        ?>
             </div>
             <a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
@@ -110,54 +98,26 @@
 <h2>น้องๆไซด์ไลน์น่าสนใจ</h2>
 <br>
 <div class="row">
-<div class="col-md-4">
-                        <div class="card card-body">
-                            <img class="img-fluid" src="http://placehold.it/380?text=1">
-                            <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card card-body">
-                            <img class="img-fluid" src="http://placehold.it/380?text=1">
-                            <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card card-body">
-                            <img class="img-fluid" src="http://placehold.it/380?text=1">
-                            <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
+
+<?php
+        include('../connection/connect.php');
+        $query = "SELECT * FROM createpost "; 
+        $result = mysqli_query($con,$query);
+            while($row = mysqli_fetch_array($result)){
+                echo "<div class='col-md-4'>";
+                echo "<div class='card card-body'>";
+                echo "<img class='img-fluid' src='sideline/upload/saturn.png'>";
+                echo "<h5 class='card-title'>".$row['jobname']."</h5>";
+                echo "<p class='card-text'>".$row['area']."</p>";
+                echo "<p class='card-text'>".$row['zone']."</p>";
+                echo "<p class='card-footer'>".$row['rateprice']."</p>";
+                echo "</div>";
+                echo "</div>";
+            }
+            mysqli_close($con);
+        ?>
 </div>
 <br>
-<div class="row">
-<div class="col-md-4">
-                        <div class="card card-body">
-                            <img class="img-fluid" src="http://placehold.it/380?text=1">
-                            <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card card-body">
-                            <img class="img-fluid" src="http://placehold.it/380?text=1">
-                            <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                                        <div class="col-md-4">
-                        <div class="card card-body">
-                            <img class="img-fluid" src="http://placehold.it/380?text=1">
-                            <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-</div>
-<br>
-</div>
 <!-- partial -->
   <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
 <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script><script  src="../script.js"></script>

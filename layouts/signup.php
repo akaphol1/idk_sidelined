@@ -56,24 +56,26 @@ require_once('../connection/connect.php');
                         <h5 class="card-title text-center">Register</h5>
                         <form class="form-signin"  method="POST" id="login"
                             class="form-horizontal">
-                            <div class="form-label-group">
-                                <input type="text"  class="form-control" name="username" id="username"
-                                    placeholder="Username" required autofocus autocomplete="off">
-                                <label for="inputEmail">Username</label>
-                            </div>
 
                             <div class="form-label-group">
-                                <input type="password"  class="form-control" name="password"
-                                    id="password" placeholder="Password" required>
-                                <label for="inputPassword">Password</label>
-                            </div>
+                <input type="text" id="inputEmail" class="form-control" name="username"  placeholder="Username" required autofocus autocomplete="off">
+                <label for="inputEmail">Username</label>
+              </div>
+
+              <div class="form-label-group">
+                <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
+                <label for="inputPassword">Password</label>
+              </div>
+                   
 
 
                             <div class="form-group">
                                 <label for="">คุณคือใคร:</label>
                                 <input type="radio" id="level" name="level" value="person"><span>
                                     นักเที่ยวมาหาน้องๆ</span>
-                                <input type="radio" id="level" name="level" value="sideline"><span>
+                                    <input type="radio" id="level" name="level" value="sideline"><span>
+                                    นักเที่ยวมาหาน้องๆ</span>
+                                <input type="radio" id="level" name="level" value="1"><span>
                                     น้องไซด์ไลน์</span>
                                 <br>
                                 <input type="checkbox" id="over18" name="over18" required><span>
@@ -89,6 +91,11 @@ require_once('../connection/connect.php');
         </div>
     </div>
     <hr>
+    <footer class="footer-sign">
+      <div class="container">
+        <span>!!กรณาอย่าโอนให้น้องที่ไม่ได้ยืนยันตน!!</span>
+      </div>
+    </footer>
     <!-- partial -->
     <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
@@ -103,8 +110,8 @@ require_once('../connection/connect.php');
 			if(valid){
 
 
-			var username 	= $('#username').val();
-			var password	= $('#password').val();
+			var username 	= $('#inputEmail').val();
+			var password	= $('#inputPassword').val();
 			var level		= $('#level').val();
 
 				e.preventDefault();	
@@ -114,12 +121,20 @@ require_once('../connection/connect.php');
 					url: '../controller/actionregister.php',
 					data: {username: username,password: password,level: level},
 					success: function(data){
-                        console.log(data);
-					Swal.fire({
-								title: 'Successfully',
+                        if(data ==="Sorry... Username Already"){
+                            Swal.fire({
+								title: 'Warning!!',
 								text: data,
+								icon: 'error'
+								})
+                        }else{
+                            Swal.fire({
+								title: 'Successfully',
+								text: 'Register SuccessFull',
 								icon: 'success'
 								})
+                        }
+
 							
 					},
 					error: function(data){
@@ -130,19 +145,8 @@ require_once('../connection/connect.php');
 								})
 					}
 				});
-
-				
-			}else{
-				
 			}
-
-			
-
-
-
 		});		
-
-		
 	});
 	
 </script>

@@ -1,21 +1,3 @@
-<?php
-    require "../connection/connect.php";
-
-    if(isset($_POST['submit'])){
-        $filetmp = $_FILES['file_img']['tmp_name'];
-        $filename = $_FILES['file_img']['name'];
-        $filepath = 'upload/'.$filename;
-
-        move_uploaded_file($filetmp,$filepath);
-        $query = "INSERT INTO createpost(image,name)
-                    VALUES(?,?)";
-        $stmt = mysqli_prepare($con,$query);
-        mysqli_stmt_bind_param($stmt,"ss",$filename,$filepath);
-        if(mysqli_stmt_execute(($stmt))){
-
-        }
-    }
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,7 +98,7 @@
                         <div class="form-group row">
                             <label for="" class="col-sm-5 col-form-label">พื้นที่รับงานที่จะใช้แสดงหน้าโพสต์ :</label>
                             <div class="col-sm-5">
-                                <input type="text" name="area" placeholder="ไม่เกิน 26 ตัวอักษร" />
+                                <input type="text" name="area"   value="บริเวณ"/ require>
                                 <small> เช่น: "บริเวณจตุจักร", หรือ "รัชดา 17" เป็นต้น</small>
                             </div>
                         </div>
@@ -125,8 +107,8 @@
                             <label for="" class="col-sm-5 col-form-label"><span style="color:red;">*(สำคัญมาก!)
                                 </span>โซนรับงาน ที่ใกล้ที่สุด :</label>
                             <div class="col-sm-5">
-                                <input type="text" name="zone" placeholder="ไม่เกิน 26 ตัวอักษร" />
-                                <small style="color:red"> *ลูกค้าจะค้นหาคุณด้วย Zone ฉะนั้นโปรดเลือกให้ถูก</small>
+                                <input type="text" name="zone" placeholder="ไม่เกิน 26 ตัวอักษร" value="Zone" />
+                                <small> เช่น: "Zone อุดมสุข",หรือ "Zone บางนา" เป็นต้น</small>
                             </div>
                         </div>
 
@@ -166,6 +148,27 @@
                         </div>
 
                         <div class="form-group row">
+                            
+                            <label for="" class="col-sm-5 col-form-label">สัดส่วนร่างกาย :</label>
+                            <div class="col-sm-5">
+                            
+                            <span style="display:inline-block;width:60px">
+                                <input type="text" name="body1" placeholder="นิ้ว" />
+                            </span>
+                            <span style="display:inline-block;width:24px;text-align:center;">/</span>
+                            <span style="display:inline-block;width:60px">
+                                <input type="text" name="body2" placeholder="นิ้ว" />
+                            </span>
+                            <span style="display:inline-block;width:24px;text-align:center;">/</span>
+                            <span style="display:inline-block;width:60px">
+                                <input type="text" name="body3" placeholder="นิ้ว" />
+                            </span>
+                            
+                            </div>
+                            
+                        </div>
+
+                        <div class="form-group row">
                             <label for="" class="col-sm-5 col-form-label">ส่วนสูง :</label>
                             <div class="col-sm-5">
                                 <input type="text" name="height" placeholder="เซนติเมตร" />
@@ -194,15 +197,15 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th scope="row"><input type="radio" name="dayforprice" id="dayforprice" value="150"> 7 วัน</th>
+                                    <th scope="row"><input type="radio" name="dayforprice" id="dayforprice150"  onclick="change()" value="150"> 7 วัน</th>
                                     <td>฿150 (วันละ ฿21)</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row"><input type="radio" name="dayforprice" id="dayforprice" value="500"> 1 เดือน</th>
+                                    <th scope="row"><input type="radio" name="dayforprice" id="dayforprice500" onclick="change()" value="500"> 1 เดือน</th>
                                     <td>฿500 (วันละ ฿16) - แนะนำ</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row"><input type="radio" name="dayforprice" id="dayforprice" value="1300"> 3 เดือน</th>
+                                    <th scope="row"><input type="radio" name="dayforprice" id="dayforprice1300" onclick="change()" value="1300"> 3 เดือน</th>
                                     <td>฿1300 (วันละ ฿14)</td>
                                 </tr>
                             </tbody>
@@ -237,7 +240,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">ค่าใช้จ่าย</th>
-                                    <th scope="col">15000</th>
+                                    <th scope="col" id="total">Total price:</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -277,7 +280,17 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
     <script src="js/script.js"></script>
-
+    <script>
+$('#dayforprice150').click(function(){
+    $('#total').text('Total price: 150฿');
+});
+$('#dayforprice500').click(function(){
+    $('#total').text('Total price: 500฿');
+});
+$('#dayforprice1300').click(function(){
+    $('#total').text('Total price: 1300฿');
+});
+    </script>
 </body>
 
 </html>

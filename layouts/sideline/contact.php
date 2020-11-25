@@ -28,7 +28,7 @@
                     <a class="nav-link" href="contact.php"><i class="fas fa-calendar-check"></i>ข้อมูล</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="createpost.php"><i class="fas fa-map-marker-alt"></i>โพสต์</a>
+                    <a class="nav-link" href="postsideline.php"><i class="fas fa-map-marker-alt"></i>โพสต์</a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="logout.php"><i class="fas fa-sign-in-alt"></i>ออกจากระบบ</a>
@@ -115,6 +115,11 @@
         </ul>
         </p>
     </div>
+    <footer class="footer">
+      <div class="container">
+        <span>!!กรณาอย่าโอนให้น้องที่ไม่ได้ยืนยันตน!!</span>
+      </div>
+    </footer>
     <!-- partial -->
     <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>

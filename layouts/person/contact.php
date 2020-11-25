@@ -9,14 +9,14 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css'>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
     <!-- partial:index.partial.html -->
     <nav class="navbar navbar-expand-lg navbar-mainbg">
-        <a class="navbar-brand navbar-logo" href="index.php">Idk<span>sideline</span></a>
+        <a class="navbar-brand navbar-logo" href="personpage.php">Idk<span>sideline</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars text-white"></i>
@@ -31,10 +31,7 @@
                     <a class="nav-link" href="howtocontact.php"><i class="fas fa-map-marker-alt"></i>วิธีการนัดน้องๆ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="howtocreatepost.php"><i class="fas fa-map-marker-alt"></i>วิธีการลงโพสต์ไซด์ไลน์</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="signin.php"><i class="fas fa-sign-in-alt"></i>เข้าสู่ระบบ</a>
+                    <a class="nav-link" href="logout.php"><i class="fas fa-sign-in-alt"></i>ออกจากระบบ</a>
                 </li>
             </ul>
         </div>
@@ -126,7 +123,7 @@
     <!-- partial -->
     <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
-    <script src="../script.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
 

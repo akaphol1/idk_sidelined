@@ -34,63 +34,82 @@
         </div>
     </nav>
     <div class="container text-center my-3">
-    <h2 class="font-weight-light">TOP STAR</h2>
+    <!-- <h2 class="font-weight-light">TOP STAR</h2>
     <div class="row mx-auto my-auto">
         <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
             <div class="carousel-inner w-100" role="listbox">
 
             <?php
         include('../connection/connect.php');
-        $query = "SELECT * FROM createpost"; 
+        $query = "SELECT * FROM createpost WHERE status ='1'"; 
         $result = mysqli_query($con,$query);
         if($result){
             $row = mysqli_num_rows($result);
             
-            if($row=1){
                 while($row = mysqli_fetch_array($result)){
-                    echo "<div class='carousel-item active'>";
-                    echo "<div class='col-md-4'>";
-                    echo "<div class='card card-body'>";
-                    echo "<img class='img-fluid' src='sideline/upload/saturn.png'>";
-                    echo "<h5 class='card-title'>".$row['jobname']."</h5>";
-                    echo "<p class='card-text'>".$row['area']."</p>";
-                    echo "<p class='card-text'>".$row['zone']."</p>";
-                    echo "<p class='card-footer'>".$row['rateprice']."</p>";
-                    echo "</div>";
-                    echo "</div>";
-                    echo "</div>";
-                }
+                                if($row['sex']==='girl'){
+                $sex = "หญิง";
             }
-            else{
-                while($row = mysqli_fetch_array($result)){
+            if($row['sex']==='ladyboy'){
+                $sex = "สาวสอง";
+            }
+            if($row['sex']==='ladygirl'){
+                $sex = "สาวสองแปลง.";
+            }
                     echo "<div class='carousel-item'>";
+                    echo "<img class='img-fluid img-thumbnail' src='../layouts/controller/upload/".$row['image']."' style='height: 300px;'>";
                     echo "<div class='col-md-4'>";
+                    echo "<div class='box'>";
                     echo "<div class='card card-body'>";
-                    echo "<img class='img-fluid' src='sideline/upload/saturn.png'>";
-                    echo "<h5 class='card-title'>".$row['jobname']."</h5>";
+                    echo "<div class='ribbon ribbon-top-right'><span>ยืนยันตัวตนแล้ว</span></div>";
+       
+                    echo "<div class='ribboner ribbon-bottom'><span>".$sex."</span></div>";
+                    echo "<div class='ribbonprice ribbon-bottomright'><span>".$row['rateprice']."฿</span></div>";
+                    echo "<h3 class='card-title'>".$row['zone']."</h3>";
                     echo "<p class='card-text'>".$row['area']."</p>";
-                    echo "<p class='card-text'>".$row['zone']."</p>";
-                    echo "<p class='card-footer'>".$row['rateprice']."</p>";
+                    echo "<p class='card-text'>น้อง ".$row['jobname']."</p>";
+            
+                    echo "</div>";
                     echo "</div>";
                     echo "</div>";
                     echo "</div>";
                 }
-            }
+            
+            // else{
+            //     while($row = mysqli_fetch_array($result)){
+            //         echo "<div class='carousel-item'>";
+            //         echo "<div class='col-md-4'>";
+            //         echo "<div class='box'>";
+            //         echo "<div class='card card-body'>";
+            //         echo "<div class='ribbon ribbon-top-right'><span>New</span></div>";
+            //         echo "<img class='img-fluid img-thumbnail' src='../layouts/controller/upload/".$row['image']."' style='height: 300px;'>";
+            //         echo "<div class='ribboner ribbon-bottom'><span>".$sex."</span></div>";
+            //         echo "<div class='ribbonprice ribbon-bottomright'><span>".$row['rateprice']."฿</span></div>";
+            //         echo "<h3 class='card-title'>".$row['zone']."</h3>";
+            //         echo "<p class='card-text'>".$row['area']."</p>";
+            //         echo "<p class='card-text'>น้อง ".$row['jobname']."</p>";
+            
+            //         echo "</div>";
+            //         echo "</div>";
+            //         echo "</div>";
+            //         echo "</div>";
+            //     }
+            // }
         }
 
             mysqli_close($con);
         ?>
             </div>
-            <a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button" data-slide="prev">
+            <!-- <a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
             </a>
             <a class="carousel-control-next w-auto" href="#recipeCarousel" role="button" data-slide="next">
                 <span class="carousel-control-next-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
-            </a>
+            </a> -->
         </div>
-    </div>
+    </div> -->
    
 </div>
 <hr>
@@ -98,29 +117,47 @@
 <h2>น้องๆไซด์ไลน์น่าสนใจ</h2>
 <br>
 <div class="row">
-
 <?php
         include('../connection/connect.php');
-        $query = "SELECT * FROM createpost "; 
+        $query = "SELECT * FROM createpost WHERE status ='1' "; 
         $result = mysqli_query($con,$query);
-            while($row = mysqli_fetch_array($result)){
-                echo "<div class='col-md-4'>";
-                echo "<div class='card card-body'>";
-                echo "<img class='img-fluid' src='sideline/upload/saturn.png'>";
-                echo "<h5 class='card-title'>".$row['jobname']."</h5>";
-                echo "<p class='card-text'>".$row['area']."</p>";
-                echo "<p class='card-text'>".$row['zone']."</p>";
-                echo "<p class='card-footer'>".$row['rateprice']."</p>";
-                echo "</div>";
-                echo "</div>";
+        while($row = mysqli_fetch_array($result)){
+            if($row['sex']==='girl'){
+                $sex = "หญิง";
             }
-            mysqli_close($con);
+            if($row['sex']==='ladyboy'){
+                $sex = "สาวสอง";
+            }
+            if($row['sex']==='ladygirl'){
+                $sex = "สาวสองแปลง.";
+            }
+        echo "<div class='col-md-4'>";
+        echo "<div class='box'>";
+        echo "<div class='card card-body'>";
+        echo "<div class='ribbon ribbon-top-right'><span>ยืนยันตัวตนแล้ว</span></div>";
+        echo "<a href='viewsideline.php?id=".$row['id']."'><img class='img-fluid img-thumbnail' src='../layouts/controller/upload/".$row['image']."' style='width:100%;height: 300px;'></a>";
+        echo "<div class='ribboner ribbon-bottom'><span>".$sex."</span></div>";
+        echo "<div class='ribbonprice ribbon-bottomright'><span>".$row['rateprice']."฿</span></div>";
+        echo "<h3 class='card-title'>".$row['zone']."</h3>";
+        echo "<p class='card-text'>".$row['area']."</p>";
+        echo "<p class='card-text'>น้อง ".$row['jobname']."</p>";
+
+        echo "</div>";
+        echo "<br>";
+        echo "</div>";
+        echo "</div>";
+    }
+    mysqli_close($con);
         ?>
 </div>
-<br>
+</div>
+<footer class="footer">
+      <div class="container">
+        <span>!!กรณาอย่าโอนให้น้องที่ไม่ได้ยืนยันตน!!</span>
+      </div>
+    </footer>
 <!-- partial -->
   <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
 <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script><script  src="../script.js"></script>
-
 </body>
 </html>

@@ -22,7 +22,7 @@ $row = mysqli_fetch_array($result);
 <body>
 <!-- partial:index.partial.html -->
 <nav class="navbar navbar-expand-lg navbar-mainbg">
-        <a class="navbar-brand navbar-logo" href="../index.php">Idk<span>sideline</span></a>
+        <a class="navbar-brand navbar-logo" href="personpage.php">Idk<span>sideline</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars text-white"></i>
@@ -36,140 +36,137 @@ $row = mysqli_fetch_array($result);
                 <li class="nav-item">
                     <a class="nav-link" href="howtocontact.php"><i class="fas fa-map-marker-alt"></i>วิธีการนัดน้องๆ</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="howtocreatepost.php"><i class="fas fa-map-marker-alt"></i>วิธีการลงโพสต์ไซด์ไลน์</a>
-                </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="logout.php"><i class="fas fa-sign-in-alt"></i>ออกจากระบบ</a>
                 </li>
             </ul>
         </div>
     </nav>
-    <div class="container text-center my-3">
-    <h2 class="font-weight-light">TOP STAR</h2>
+<div class="container text-center my-3">
+    <!-- <h2 class="font-weight-light">TOP STAR</h2>
     <div class="row mx-auto my-auto">
         <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
             <div class="carousel-inner w-100" role="listbox">
-                <div class="carousel-item active">
-                    <div class="col-md-4">
-                        <div class="card card-body">
-                            <img class="img-fluid" src="http://placehold.it/380?text=1">
-                            <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col-md-4">
-                        <div class="card card-body">
-                            <img class="img-fluid" src="http://placehold.it/380?text=2">
-                            <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col-md-4">
-                        <div class="card card-body">
-                            <img class="img-fluid" src="http://placehold.it/380?text=3">
-                            <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col-md-4">
-                        <div class="card card-body">
-                            <img class="img-fluid" src="http://placehold.it/380?text=4">
-                            <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col-md-4">
-                        <div class="card card-body">
-                            <img class="img-fluid" src="http://placehold.it/380?text=5">
-                            <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col-md-4">
-                        <div class="card card-body">
-                            <img class="img-fluid" src="http://placehold.it/380?text=6">
-                            <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
+
+            <?php
+        include('connect.php');
+        $query = "SELECT * FROM createpost WHERE status ='1'"; 
+        $result = mysqli_query($con,$query);
+        if($result){
+            $row = mysqli_num_rows($result);
+            
+                while($row = mysqli_fetch_array($result)){
+                                if($row['sex']==='girl'){
+                $sex = "หญิง";
+            }
+            if($row['sex']==='ladyboy'){
+                $sex = "สาวสอง";
+            }
+            if($row['sex']==='ladygirl'){
+                $sex = "สาวสองแปลง.";
+            }
+                    echo "<div class='carousel-item'>";
+                    echo "<img class='img-fluid img-thumbnail' src='../layouts/controller/upload/".$row['image']."' style='height: 300px;'>";
+                    echo "<div class='col-md-4'>";
+                    echo "<div class='box'>";
+                    echo "<div class='card card-body'>";
+                    echo "<div class='ribbon ribbon-top-right'><span>New</span></div>";
+       
+                    echo "<div class='ribboner ribbon-bottom'><span>".$sex."</span></div>";
+                    echo "<div class='ribbonprice ribbon-bottomright'><span>".$row['rateprice']."฿</span></div>";
+                    echo "<h3 class='card-title'>".$row['zone']."</h3>";
+                    echo "<p class='card-text'>".$row['area']."</p>";
+                    echo "<p class='card-text'>น้อง ".$row['jobname']."</p>";
+            
+                    echo "</div>";
+                    echo "</div>";
+                    echo "</div>";
+                    echo "</div>";
+                }
+            
+            // else{
+            //     while($row = mysqli_fetch_array($result)){
+            //         echo "<div class='carousel-item'>";
+            //         echo "<div class='col-md-4'>";
+            //         echo "<div class='box'>";
+            //         echo "<div class='card card-body'>";
+            //         echo "<div class='ribbon ribbon-top-right'><span>New</span></div>";
+            //         echo "<img class='img-fluid img-thumbnail' src='../layouts/controller/upload/".$row['image']."' style='height: 300px;'>";
+            //         echo "<div class='ribboner ribbon-bottom'><span>".$sex."</span></div>";
+            //         echo "<div class='ribbonprice ribbon-bottomright'><span>".$row['rateprice']."฿</span></div>";
+            //         echo "<h3 class='card-title'>".$row['zone']."</h3>";
+            //         echo "<p class='card-text'>".$row['area']."</p>";
+            //         echo "<p class='card-text'>น้อง ".$row['jobname']."</p>";
+            
+            //         echo "</div>";
+            //         echo "</div>";
+            //         echo "</div>";
+            //         echo "</div>";
+            //     }
+            // }
+        }
+
+            mysqli_close($con);
+        ?>
             </div>
-            <a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button" data-slide="prev">
+            <!-- <a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next w-auto" href="#recipeCarousel" role="button" data-slide="next">
+            </a> -->
+            <!-- <a class="carousel-control-next w-auto" href="#recipeCarousel" role="button" data-slide="next">
                 <span class="carousel-control-next-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
-            </a>
+            </a> -->
         </div>
-    </div>
-
+    </div> -->
+   
 </div>
 <hr>
 <div class="container">
 <h2>น้องๆไซด์ไลน์น่าสนใจ</h2>
 <br>
 <div class="row">
-<div class="col-md-4">
-                        <div class="card card-body">
-                            <img class="img-fluid" src="http://placehold.it/380?text=1">
-                            <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card card-body">
-                            <img class="img-fluid" src="http://placehold.it/380?text=1">
-                            <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card card-body">
-                            <img class="img-fluid" src="http://placehold.it/380?text=1">
-                            <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-</div>
-<br>
-<div class="row">
-<div class="col-md-4">
-                        <div class="card card-body">
-                            <img class="img-fluid" src="http://placehold.it/380?text=1">
-                            <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card card-body">
-                            <img class="img-fluid" src="http://placehold.it/380?text=1">
-                            <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                                        <div class="col-md-4">
-                        <div class="card card-body">
-                            <img class="img-fluid" src="http://placehold.it/380?text=1">
-                            <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-</div>
-<br>
-</div>
+
+<?php
+        include('connect.php');
+        $query = "SELECT * FROM createpost WHERE status ='1' "; 
+        $result = mysqli_query($con,$query);
+        while($row = mysqli_fetch_array($result)){
+            if($row['sex']==='girl'){
+                $sex = "หญิง";
+            }
+            if($row['sex']==='ladyboy'){
+                $sex = "สาวสอง";
+            }
+            if($row['sex']==='ladygirl'){
+                $sex = "สาวสองแปลง.";
+            }
+        echo "<div class='col-md-4'>";
+        echo "<div class='box'>";
+        echo "<div class='card card-body'>";
+        echo "<div class='ribbon ribbon-top-right'><span>New</span></div>";
+        echo "<a href='viewsideline.php?id=".$row['id']."'><img class='img-fluid img-thumbnail' src='../controller/upload/".$row['image']."' style='width:100%;height: 300px;'></a>";
+        echo "<div class='ribboner ribbon-bottom'><span>".$sex."</span></div>";
+        echo "<div class='ribbonprice ribbon-bottomright'><span>".$row['rateprice']."฿</span></div>";
+        echo "<h3 class='card-title'>".$row['zone']."</h3>";
+        echo "<p class='card-text'>".$row['area']."</p>";
+        echo "<p class='card-text'>น้อง ".$row['jobname']."</p>";
+
+        echo "</div>";
+        echo "<br>";
+        echo "</div>";
+        echo "</div>";
+    }
+    mysqli_close($con);
+        ?>
+
+</div></div>
+
+<footer class="footer">
+      <div class="container">
+        <span>!!กรณาอย่าโอนให้น้องที่ไม่ได้ยืนยันตน!!</span>
+      </div>
+    </footer>
 <!-- partial -->
   <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
 <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script><script  src="js/script.js"></script>

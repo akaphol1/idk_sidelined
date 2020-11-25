@@ -42,6 +42,7 @@
           <div class="card-body">
             <h5 class="card-title text-center">Login</h5>
             <form class="form-signin" action="../controller/actionlogin.php" method="POST" id="login" class="form-horizontal">
+            
               <div class="form-label-group">
                 <input type="text" id="inputEmail" class="form-control" name="username" id="username" placeholder="Username" required autofocus>
                 <label for="inputEmail">Username</label>
@@ -60,7 +61,11 @@
       </div>
     </div>
   </div>
-  <hr>
+  <footer class="footer-sign">
+      <div class="container">
+        <span>!!กรณาอย่าโอนให้น้องที่ไม่ได้ยืนยันตน!!</span>
+      </div>
+    </footer>
 <!-- partial -->
   <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
 <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script><script  src="../script.js"></script>

@@ -30,13 +30,13 @@ $row = mysqli_fetch_array($result);
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
                 <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
-                <li class="nav-item active">
+                <li class="nav-item ">
                     <a class="nav-link" href="contact.php"><i class="fas fa-calendar-check"></i>ข้อมูล</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="postsideline.php"><i class="fas fa-map-marker-alt"></i>โพสต์</a>
                 </li>
-                <li class="nav-item ">
+                <li class="nav-item active">
                     <a class="nav-link" href="logout.php"><i class="fas fa-sign-in-alt"></i>ออกจากระบบ</a>
                 </li>
             </ul>

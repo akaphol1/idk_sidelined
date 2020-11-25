@@ -12,11 +12,11 @@ include('../connection/connect.php');  //ไฟล์เชื่อมต่อ
     $res_u = mysqli_query($con, $sql_u);
 
     if (mysqli_num_rows($res_u) > 0) {
-      $name_error = "Sorry... username already taken"; 	
+      $name_error = "Sorry... Username Already"; 	
     }
 	else{
-	$sql = "INSERT INTO login(username, password, level)
-			 VALUES('$username', '$password', '$level')";
+	$sql = "INSERT INTO login(username,password,level)
+			 VALUES('$username','$password','$level')";
 	$result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error($con));
     mysqli_close($con);
 }
@@ -25,11 +25,6 @@ include('../connection/connect.php');  //ไฟล์เชื่อมต่อ
         echo 'SuccessFully Saved';
         Header("Location: ../layouts/signin.php");
     }
-    
-	else{
-        echo 'Sorry... Username Already';
-    }
-
     }else{
         echo 'No Data';
     }

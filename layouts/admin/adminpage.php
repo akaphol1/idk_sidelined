@@ -50,9 +50,11 @@ $row = mysqli_fetch_array($result);
   <thead>
     <tr>
       <th scope="col">id</th>
-      <th scope="col">name</th>
-      <th scope="col">sex</th>
-      <th scope="col">status</th>
+      <th scope="col">username</th>
+      <th scope="col">ชื่อ</th>
+      <th scope="col">สถานะ</th>
+      <th scope="col">ระยะเวลาโพสต์</th>
+      <th scope="col">วันที่โพสต์</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -67,8 +69,8 @@ $row = mysqli_fetch_array($result);
             while($row = mysqli_fetch_array($result)){
             echo "<tr>";
             echo "<th scope='row'>".$row['id']."</th>";
+            echo "<td>".$row['username']."</td>";
             echo "<td>".$row['jobname']."</td>";
-            echo "<td>".$row['sex']."</td>";
             if($row['status']==='0'){
                 $show = "<td><h3><span class='badge badge-pill badge-primary'>Wait</span></h3></td>";
             }
@@ -76,7 +78,18 @@ $row = mysqli_fetch_array($result);
                 $show = "<td><h3><span class='badge badge-pill badge-success'>Approve</span></h3></td>";
             }
             echo $show;
-            echo "<td><a href='controller/updatesideline.php?id=".$row['id']."' class='btn btn-primary'>Approve</a></td>";
+            if($row['dayforprice']==='1300'){
+              $day = "<td>3 เดือน</td>";
+            }
+            if($row['dayforprice']==='500'){
+              $day = "<td>1 เดือน</td>";
+            }
+            if($row['dayforprice']==='150'){
+              $day = "<td>7 วัน</td>";
+            }
+            echo $day;
+            echo "<td>".$row['created_date']."</td>";
+            echo "<td><a href='controller/updatesideline.php?id=".$row['id']."' class='btn btn-primary'>Approve</a> <a href='controller/disablesideline.php?id=".$row['id']."' class='btn btn-warning'>Disapproval</a></td>";
             echo "</tr>";
         }
         mysqli_close($con);

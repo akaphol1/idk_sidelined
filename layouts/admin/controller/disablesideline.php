@@ -4,14 +4,14 @@ include('../connect.php');
 if(!empty($_GET['id'])){
 $id = $_GET['id'];
 
-$sql = "UPDATE createpost SET status='1' WHERE id='$id' ";
+$sql = "UPDATE createpost SET status='0' WHERE id='$id' ";
 $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
  
 mysqli_close($con);
 
 if($result){
 	echo "<script type='text/javascript'>";
-	echo "alert('Approved Succesfuly');";
+	echo "alert('Disapproval Succesfuly');";
 	echo "window.location = '../adminpage.php'; ";
 	echo "</script>";
 	}

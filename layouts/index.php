@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"><link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css'><link rel="stylesheet" href="../style.css">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 
 </head>
 <body>
@@ -33,86 +34,15 @@
             </ul>
         </div>
     </nav>
-    <div class="container text-center my-3">
-    <!-- <h2 class="font-weight-light">TOP STAR</h2>
-    <div class="row mx-auto my-auto">
-        <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
-            <div class="carousel-inner w-100" role="listbox">
-
-            <?php
-        include('../connection/connect.php');
-        $query = "SELECT * FROM createpost WHERE status ='1'"; 
-        $result = mysqli_query($con,$query);
-        if($result){
-            $row = mysqli_num_rows($result);
-            
-                while($row = mysqli_fetch_array($result)){
-                                if($row['sex']==='girl'){
-                $sex = "หญิง";
-            }
-            if($row['sex']==='ladyboy'){
-                $sex = "สาวสอง";
-            }
-            if($row['sex']==='ladygirl'){
-                $sex = "สาวสองแปลง.";
-            }
-                    echo "<div class='carousel-item'>";
-                    echo "<img class='img-fluid img-thumbnail' src='../layouts/controller/upload/".$row['image']."' style='height: 300px;'>";
-                    echo "<div class='col-md-4'>";
-                    echo "<div class='box'>";
-                    echo "<div class='card card-body'>";
-                    echo "<div class='ribbon ribbon-top-right'><span>ยืนยันตัวตนแล้ว</span></div>";
-       
-                    echo "<div class='ribboner ribbon-bottom'><span>".$sex."</span></div>";
-                    echo "<div class='ribbonprice ribbon-bottomright'><span>".$row['rateprice']."฿</span></div>";
-                    echo "<h3 class='card-title'>".$row['zone']."</h3>";
-                    echo "<p class='card-text'>".$row['area']."</p>";
-                    echo "<p class='card-text'>น้อง ".$row['jobname']."</p>";
-            
-                    echo "</div>";
-                    echo "</div>";
-                    echo "</div>";
-                    echo "</div>";
-                }
-            
-            // else{
-            //     while($row = mysqli_fetch_array($result)){
-            //         echo "<div class='carousel-item'>";
-            //         echo "<div class='col-md-4'>";
-            //         echo "<div class='box'>";
-            //         echo "<div class='card card-body'>";
-            //         echo "<div class='ribbon ribbon-top-right'><span>New</span></div>";
-            //         echo "<img class='img-fluid img-thumbnail' src='../layouts/controller/upload/".$row['image']."' style='height: 300px;'>";
-            //         echo "<div class='ribboner ribbon-bottom'><span>".$sex."</span></div>";
-            //         echo "<div class='ribbonprice ribbon-bottomright'><span>".$row['rateprice']."฿</span></div>";
-            //         echo "<h3 class='card-title'>".$row['zone']."</h3>";
-            //         echo "<p class='card-text'>".$row['area']."</p>";
-            //         echo "<p class='card-text'>น้อง ".$row['jobname']."</p>";
-            
-            //         echo "</div>";
-            //         echo "</div>";
-            //         echo "</div>";
-            //         echo "</div>";
-            //     }
-            // }
-        }
-
-            mysqli_close($con);
-        ?>
-            </div>
-            <!-- <a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next w-auto" href="#recipeCarousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a> -->
-        </div>
-    </div> -->
-   
-</div>
-<hr>
+    <div class="container" style="padding:10px">
+        <h2>ค้นหาไซด์ไลน์แบบง่ายๆ <i class="fas fa-search"></i></h2>
+        <br>
+        <select name="" id="" class="custom-select">ค้นหาตามจังหวัด
+        <option value="">--เลือกจังหวัด--</option>
+        </select>
+        
+    </div>
+    <hr>
 <div class="container">
 <h2>น้องๆไซด์ไลน์น่าสนใจ</h2>
 <br>
@@ -131,21 +61,38 @@
             if($row['sex']==='ladygirl'){
                 $sex = "สาวสองแปลง.";
             }
-        echo "<div class='col-md-4'>";
-        echo "<div class='box'>";
-        echo "<div class='card card-body'>";
-        echo "<div class='ribbon ribbon-top-right'><span>ยืนยันตัวตนแล้ว</span></div>";
-        echo "<a href='viewsideline.php?id=".$row['id']."'><img class='img-fluid img-thumbnail' src='../layouts/controller/upload/".$row['image']."' style='width:100%;height: 300px;'></a>";
-        echo "<div class='ribboner ribbon-bottom'><span>".$sex."</span></div>";
-        echo "<div class='ribbonprice ribbon-bottomright'><span>".$row['rateprice']."฿</span></div>";
-        echo "<h3 class='card-title'>".$row['zone']."</h3>";
-        echo "<p class='card-text'>".$row['area']."</p>";
-        echo "<p class='card-text'>น้อง ".$row['jobname']."</p>";
+            if($row['confirm']==='1'){
+                echo "<div class='col-md-4'>";
+                echo "<div class='box'>";
+                echo "<div class='card card-body'>";
+                echo "<div class='ribbon ribbon-top-right'><span>ยืนยัน รูปภาพจริง</span></div>";
+                echo "<a href='viewsideline.php?id=".$row['id']."'><img class='img-fluid img-thumbnail' src='../layouts/controller/upload/".$row['image']."' style='width:100%;height: 300px;'></a>";
+                echo "<div class='ribboner ribbon-bottom'><span>".$sex."</span></div>";
+                echo "<div class='ribbonprice ribbon-bottomright'><span>".$row['rateprice']."฿</span></div>";
+                echo "<h3 class='card-title'>".$row['zone']."</h3>";
+                echo "<p class='card-text'>".$row['area']."</p>";
+                echo "<p class='card-text'>น้อง ".$row['jobname']."</p>";
+        
+                echo "</div>";
+                echo "<br>";
+                echo "</div>";
+                echo "</div>";
+            }else{
+                echo "<div class='col-md-4'>";
+                echo "<div class='box'>";
+                echo "<div class='card card-body'>";
+                echo "<img class='img-fluid img-thumbnail' src='../layouts/controller/upload/".$row['image']."' style='height: 300px;'>";
+                echo "<div class='ribboner ribbon-bottom'><span>".$sex."</span></div>";
+                echo "<div class='ribbonprice ribbon-bottomright'><span>".$row['rateprice']."฿</span></div>";
+                echo "<h3 class='card-title'>".$row['zone']."</h3>";
+                echo "<p class='card-text'>".$row['area']."</p>";
+                echo "<p class='card-text'>น้อง ".$row['jobname']."</p>";
+                echo "</div>";
+                echo "<br>";
+                echo "</div>";
+                echo "</div>";
+            }
 
-        echo "</div>";
-        echo "<br>";
-        echo "</div>";
-        echo "</div>";
     }
     mysqli_close($con);
         ?>
@@ -158,6 +105,12 @@
     </footer>
 <!-- partial -->
   <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script><script  src="../script.js"></script>
+<script>
+    $(document).ready(function() {
+    $('.custom-select').select2();
+});
+</script>
 </body>
 </html>

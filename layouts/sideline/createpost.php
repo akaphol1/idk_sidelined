@@ -72,7 +72,7 @@
                         <div class="form-group row">
                             <label for="" class="col-sm-5 col-form-label">ชื่อที่รับงาน :</label>
                             <div class="col-sm-5">
-                                <input type="text" name="jobname" placeholder="ชื่อที่ใช้รับงาน" />
+                                <input type="text" name="jobname" placeholder="ชื่อที่ใช้รับงาน"  require/>
                             </div>
                         </div>
 
@@ -91,7 +91,7 @@
                         <div class="form-group row">
                             <label for="" class="col-sm-5 col-form-label">เรทราคางานเริ่มต้น :</label>
                             <div class="col-sm-5">
-                                <input type="text" name="rateprice" placeholder="1500" />
+                                <input type="text" name="rateprice" placeholder="1500" require/>
                             </div>
                         </div>
 
@@ -107,7 +107,7 @@
                             <label for="" class="col-sm-5 col-form-label"><span style="color:red;">*(สำคัญมาก!)
                                 </span>โซนรับงาน ที่ใกล้ที่สุด :</label>
                             <div class="col-sm-5">
-                                <input type="text" name="zone" placeholder="ไม่เกิน 26 ตัวอักษร" value="Zone" />
+                                <input type="text" name="zone" placeholder="ไม่เกิน 26 ตัวอักษร" value="Zone" require />
                                 <small> เช่น: "Zone อุดมสุข",หรือ "Zone บางนา" เป็นต้น</small>
                             </div>
                         </div>
@@ -115,7 +115,7 @@
                         <div class="form-group row">
                             <label for="" class="col-sm-5 col-form-label">ข้อความเกี่ยวกับน้อง :</label>
                             <div class="col-sm-5">
-                                <textarea name="textsideline" style="height: 200px;"></textarea>
+                                <textarea name="textsideline" style="height: 200px;" require></textarea>
                             </div>
                         </div>
 
@@ -124,14 +124,14 @@
                             <label for="" class="col-sm-5 col-form-label">รูปภาพ :</label>
                             <div class="col-sm-5">
                                 <small>รูปภาพจะถูกแสดงเป็นภาพหลักหน้าโพสต์</small>
-                                <input type="file" name="image" />
+                                <input type="file" name="image" require/>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="" class="col-sm-5 col-form-label">Line ID ที่จะใช้รับงาน :</label>
                             <div class="col-sm-5">
-                                <input type="text" name="line" />
+                                <input type="text" name="line" require />
                             </div>
                         </div>
                         <input type="button" name="next" class="next action-button" value="Next" />
@@ -196,6 +196,10 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            <tr>
+                                    <th scope="row"><input type="radio" name="dayforprice" id="dayforpriceFree"  onclick="change()" value="Free"> 3 วัน</th>
+                                    <td>Free</td>
+                                </tr>
                                 <tr>
                                     <th scope="row"><input type="radio" name="dayforprice" id="dayforprice150"  onclick="change()" value="150"> 7 วัน</th>
                                     <td>฿150 (วันละ ฿21)</td>
@@ -263,7 +267,7 @@
                         <h2 class="fs-title">โปรดส่งชื่อน้องในโพสต์มาที่ไลน์</h2>
                         <h2 class="fs-title">Line: <a href="#" style="text-decoration: none;color:green;"><u>แอดมินบีบิว</u></a> <i class="fab fa-line" style="color:green"></i></h2>
                         <h2 class="fs-title">คุณสามารถปิดหน้านี้ได้</h2>
-                        <input type="submit" name="submit"  class="btn btn-warning" value="ชมหน้าโพสต์" />
+                        <input type="submit" name="submit"  class="btn" style="background-color: #FF545E; color:white;" value="ชมหน้าโพสต์" />
 
                     </fieldset>
                 </form>
@@ -281,6 +285,9 @@
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
     <script src="js/script.js"></script>
     <script>
+    $('#dayforpriceFree').click(function(){
+    $('#total').text('Total : Free');
+});
 $('#dayforprice150').click(function(){
     $('#total').text('Total price: 150฿');
 });

@@ -54,7 +54,7 @@
             
             <?php
             include('../connection/connect.php');
-            $query = "SELECT * FROM createpost WHERE username ='".$_SESSION["username"]."'"; 
+            $query = "SELECT * FROM createpost WHERE username ='".$_SESSION["username"]."' "; 
             $result = mysqli_query($con,$query);
             while($row = mysqli_fetch_array($result)){
                 if($row['sex']==='girl'){
@@ -66,24 +66,41 @@
                 if($row['sex']==='ladygirl'){
                     $sex = "สาวสองแปลง.";
                 }
-            echo "<div class='col-md-4'>";
-            echo "<div class='box'>";
-            echo "<div class='card card-body'>";
-            echo "<div class='ribbon ribbon-top-right'><span>New</span></div>";
-            echo "<img class='img-fluid img-thumbnail' src='../controller/upload/".$row['image']."' style='height: 300px;'>";
-            echo "<div class='ribboner ribbon-bottom'><span>".$sex."</span></div>";
-            echo "<div class='ribbonprice ribbon-bottomright'><span>".$row['rateprice']."฿</span></div>";
-            echo "<h3 class='card-title'>".$row['zone']."</h3>";
-            echo "<p class='card-text'>".$row['area']."</p>";
-            echo "<p class='card-text'>น้อง ".$row['jobname']."</p>";
-            echo "</div>";
-            echo "<br>";
-            echo "</div>";
-            echo "</div>";
+                if($row['confirm']==='1'){
+                    echo "<div class='col-md-4'>";
+                    echo "<div class='box'>";
+                    echo "<div class='card card-body'>";
+                    echo "<div class='ribbon ribbon-top-right'><span>ยืนยันตัวตนแล้ว</span></div>";
+                    echo "<img class='img-fluid img-thumbnail' src='../controller/upload/".$row['image']."' style='height: 300px;'>";
+                    echo "<div class='ribboner ribbon-bottom'><span>".$sex."</span></div>";
+                    echo "<div class='ribbonprice ribbon-bottomright'><span>".$row['rateprice']."฿</span></div>";
+                    echo "<h3 class='card-title'>".$row['zone']."</h3>";
+                    echo "<p class='card-text'>".$row['area']."</p>";
+                    echo "<p class='card-text'>น้อง ".$row['jobname']."</p>";
+                    echo "</div>";
+                    echo "<br>";
+                    echo "</div>";
+                    echo "</div>";
+                }
+                else{
+                    echo "<div class='col-md-4'>";
+                    echo "<div class='box'>";
+                    echo "<div class='card card-body'>";
+                    echo "<img class='img-fluid img-thumbnail' src='../controller/upload/".$row['image']."' style='height: 300px;'>";
+                    echo "<div class='ribboner ribbon-bottom'><span>".$sex."</span></div>";
+                    echo "<div class='ribbonprice ribbon-bottomright'><span>".$row['rateprice']."฿</span></div>";
+                    echo "<h3 class='card-title'>".$row['zone']."</h3>";
+                    echo "<p class='card-text'>".$row['area']."</p>";
+                    echo "<p class='card-text'>น้อง ".$row['jobname']."</p>";
+                    echo "</div>";
+                    echo "<br>";
+                    echo "</div>";
+                    echo "</div>";
+                }
         }
         mysqli_close($con);
             ?>
-      >
+      
     </div>
     <!-- partial -->
     <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>

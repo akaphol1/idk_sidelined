@@ -52,7 +52,8 @@ $row = mysqli_fetch_array($result);
       <th scope="col">id</th>
       <th scope="col">username</th>
       <th scope="col">ชื่อ</th>
-      <th scope="col">สถานะ</th>
+      <th scope="col">สถานะโอนเงิน</th>
+      <th scope="col">สถานะการยืนยันตัวตน</th>
       <th scope="col">ระยะเวลาโพสต์</th>
       <th scope="col">วันที่โพสต์</th>
       <th scope="col">Action</th>
@@ -71,6 +72,13 @@ $row = mysqli_fetch_array($result);
             echo "<th scope='row'>".$row['id']."</th>";
             echo "<td>".$row['username']."</td>";
             echo "<td>".$row['jobname']."</td>";
+            if($row['confirm']==='0'){
+              $showconfirm = "<td><h3><span class='badge badge-pill badge-primary'>Wait</span></h3></td>";
+            }
+            else{
+              $showconfirm = "<td><h3><span class='badge badge-pill badge-success'>Confirm</span></h3></td>";
+            }
+            echo $showconfirm;
             if($row['status']==='0'){
                 $show = "<td><h3><span class='badge badge-pill badge-primary'>Wait</span></h3></td>";
             }
@@ -78,6 +86,7 @@ $row = mysqli_fetch_array($result);
                 $show = "<td><h3><span class='badge badge-pill badge-success'>Approve</span></h3></td>";
             }
             echo $show;
+            
             if($row['dayforprice']==='1300'){
               $day = "<td>3 เดือน</td>";
             }
@@ -89,7 +98,12 @@ $row = mysqli_fetch_array($result);
             }
             echo $day;
             echo "<td>".$row['created_date']."</td>";
-            echo "<td><a href='controller/updatesideline.php?id=".$row['id']."' class='btn btn-primary'>Approve</a> <a href='controller/disablesideline.php?id=".$row['id']."' class='btn btn-warning'>Disapproval</a></td>";
+            echo "<td><a href='controller/updatesideline.php?id=".$row['id']."' class='btn btn-primary'>Approve</a> 
+            <a href='controller/disablesideline.php?id=".$row['id']."' class='btn btn-warning'>Disapproval</a>
+            <p>
+            <br>
+            <a href='controller/confirmSideline.php?id=".$row['id']."' class='btn btn-success'>Confirm</a>
+            <a href='controller/UnConfirmSideline.php?id=".$row['id']."' class='btn btn-danger'>Unconfirm</a></td>";
             echo "</tr>";
         }
         mysqli_close($con);

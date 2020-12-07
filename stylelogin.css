@@ -517,7 +517,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 .form-control:focus,
 .border-line:focus {
-    
+    border-color: #FFFFFF;
+    background-color: #616161;
     color: #e6e6e6;
 }
 .form-control,

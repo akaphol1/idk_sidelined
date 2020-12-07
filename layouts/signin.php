@@ -5,7 +5,7 @@
   <title>CodePen - bootstrap 4 navbar</title>
   <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"><link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css'><link rel="stylesheet" href="../style.css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css'><link rel="stylesheet" href="../stylelogin.css">
 
 </head>
 <body>
@@ -52,7 +52,7 @@
                 <input type="password" id="inputPassword" class="form-control" name="password" id="password" placeholder="Password" required>
                 <label for="inputPassword">Password</label>
               </div>
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" style="background-color: #FB5E35;">Sign in</button>
               <br>
               หรือ <a href="signup.php" style="color: blue;"><b>สมัครเลย ฟรี ง่ายมาก!</b></a>
             </form>

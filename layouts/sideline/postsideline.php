@@ -74,8 +74,8 @@
                     echo "<img class='img-fluid img-thumbnail' src='../controller/upload/".$row['image']."' style='height: 300px;'>";
                     echo "<div class='ribboner ribbon-bottom'><span>".$sex."</span></div>";
                     echo "<div class='ribbonprice ribbon-bottomright'><span>".$row['rateprice']."฿</span></div>";
-                    echo "<h3 class='card-title'>".$row['zone']."</h3>";
-                    echo "<p class='card-text'>".$row['area']."</p>";
+                    echo "<h3 class='card-title'>".$row['area']."</h3>";
+                    echo "<p class='card-text'>".$row['zone']."</p>";
                     echo "<p class='card-text'>น้อง ".$row['jobname']."</p>";
                     echo "</div>";
                     echo "<br>";
@@ -89,8 +89,8 @@
                     echo "<img class='img-fluid img-thumbnail' src='../controller/upload/".$row['image']."' style='height: 300px;'>";
                     echo "<div class='ribboner ribbon-bottom'><span>".$sex."</span></div>";
                     echo "<div class='ribbonprice ribbon-bottomright'><span>".$row['rateprice']."฿</span></div>";
-                    echo "<h3 class='card-title'>".$row['zone']."</h3>";
-                    echo "<p class='card-text'>".$row['area']."</p>";
+                    echo "<h3 class='card-title'>".$row['area']."</h3>";
+                    echo "<p class='card-text'>".$row['zone']."</p>";
                     echo "<p class='card-text'>น้อง ".$row['jobname']."</p>";
                     echo "</div>";
                     echo "<br>";

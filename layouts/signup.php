@@ -13,7 +13,7 @@ require_once('../connection/connect.php');
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css'>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../stylelogin.css">
 
 </head>
 
@@ -83,7 +83,7 @@ require_once('../connection/connect.php');
                             </div>
 
                             <button class="btn btn-lg btn-primary btn-block text-uppercase" id="reg_user"
-                                name="reg_user" type="submit">Sign Up</button>
+                                name="reg_user" type="submit" style="background-color: #FB5E35;">Sign Up</button>
                         </form>
                     </div>
                 </div>
